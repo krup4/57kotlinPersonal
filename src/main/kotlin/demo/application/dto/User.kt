@@ -1,6 +1,18 @@
 package demo.application.dto
 
 data class User(
+    val id: Int,
+    val token: String,
     val login : String,
-    val password: String
-)
+    var password: String,
+    var gender: Gender? = null,
+    var age: Int? = null,
+    var lastName: String? = null,
+    var firstName: String? = null
+) {
+
+    enum class Gender {
+        MALE, FEMALE;
+    }
+
+}
