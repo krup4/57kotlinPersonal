@@ -1,7 +1,7 @@
 package demo.application.client
 
-import demo.application.dto.Form
-import demo.application.dto.UserRegister
+import demo.application.request.Form
+import demo.application.request.UserRegister
 import demo.application.response.FormResponse
 import demo.application.response.UserResponse
 import org.springframework.cloud.openfeign.FeignClient

@@ -1,4 +1,4 @@
-package demo.application.dto
+package demo.application.request
 
 data class UserRegister(
     val login : String,
