@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
     lastName TEXT, --фамилия
     firstName TEXT, --имя
     photoUrl TEXT, --путь до файла с фотографией пользователя
-    token TEXT --уникальный токен доступа
+    token TEXT NOT NULL --уникальный токен доступа
 );
 
 CREATE TABLE IF NOT EXISTS reactions (
