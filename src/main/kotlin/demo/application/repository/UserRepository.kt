@@ -1,11 +1,12 @@
 package demo.application.repository
 
-import demo.application.dto.Form
+import demo.application.request.Form
+import demo.application.dto.Profile
 import demo.application.dto.User
-import demo.application.dto.UserRegister
-import org.springframework.stereotype.Repository
+import demo.application.request.UserRegister
+import org.springframework.stereotype.Component
 
-@Repository
+@Component
 class UserRepository(
     val userRepository: MutableList<User>
 
@@ -14,6 +15,21 @@ class UserRepository(
         return when (formGender) {
             Form.Gender.MALE -> User.Gender.MALE
             Form.Gender.FEMALE -> User.Gender.FEMALE
+        }
+    }
+
+    fun getUserByToken(token: String): User? {
+        return userRepository.find { it.token == token }
+    }
+
+    fun getUsersProfile(page: Int, size: Int, sortBy: String) : List<Profile> {
+        return userRepository.map { user ->
+            Profile(
+                age=user.age ?: 0,
+                lastName=user.lastName ?: "",
+                firstName = user.firstName ?: "",
+                photoUrl = user.photo ?: ""
+            )
         }
     }
 
@@ -31,6 +47,7 @@ class UserRepository(
                 user.lastName = form.lastName
                 user.firstName = form.firstName
                 id = user.id
+                user.photo=form.photo
             }
         }
         return id
