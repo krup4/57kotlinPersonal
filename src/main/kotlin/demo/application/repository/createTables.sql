@@ -7,7 +7,8 @@ CREATE TABLE IF NOT EXISTS users (
     age INT, --возраст
     lastName TEXT, --фамилия
     firstName TEXT, --имя
-    photoUrl TEXT --путь до файла с фотографией пользователя
+    photoUrl TEXT, --путь до файла с фотографией пользователя
+    token TEXT --уникальный токен доступа
 );
 
 CREATE TABLE IF NOT EXISTS reactions (
